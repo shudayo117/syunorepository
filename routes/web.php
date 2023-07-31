@@ -1,6 +1,7 @@
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;    
+<?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;      //追加
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function() {
-    return view('posts.index');
-});
+Route::get('/', [PostController::class, 'index']);
+Route::get("/posts/{post}",[PostController::class,"show"]);
 
+?>
